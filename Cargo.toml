@@ -1,0 +1,11 @@
+[package]
+name = "myapp"
+version = "0.1.0"
+
+[dependencies]
+dialoguer = "0.8.0"
+
+[[bin]]
+name = "appname"
+path = "client.rs"
+
