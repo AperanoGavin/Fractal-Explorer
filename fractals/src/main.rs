@@ -10,7 +10,7 @@ use std::net::{TcpListener, TcpStream};
 use std::io::{Read, Write};
 
 fn handle_client(mut stream: TcpStream) {
-    let mut buffer = [0; 8]; // On suppose que les données envoyées seront de type u32 (4 octets pour chaque valeur de largeur et hauteur)
+    let mut buffer = [0; 8]; //  de type u32 (4 octets pour chaque valeur de largeur et hauteur)
     stream.read_exact(&mut buffer).expect("Erreur de lecture des données");
 
     let image_width = u32::from_ne_bytes([buffer[0], buffer[1], buffer[2], buffer[3]]);
@@ -18,7 +18,6 @@ fn handle_client(mut stream: TcpStream) {
 
     println!("Largeur de l'image : {}", image_width);
     println!("Hauteur de l'image : {}", image_height);
-    // Faites ce que vous voulez avec les données reçues (exécutez la génération d'image, etc.)
 
     let mut image_buffer = image::ImageBuffer::new(
         image_width, image_height);
